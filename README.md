@@ -2,4 +2,4 @@
 
 Fest you need to install old icu-57 to compiling Verlihub on Freebsd
 
-End to working it you need compiling icu-libs-57 only
+End to run Verlihub you need to install libraries icu-lib57 ...
