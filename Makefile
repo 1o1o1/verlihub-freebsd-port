@@ -3,7 +3,7 @@
 # Whom:					Naumovitch Dmitry <admin@dchub.in.ua>
 #
 # $FreeBSD: ports/net-p2p/verlihub/Makefile,v 1.30 2018/19/06 07:33:12 ade Exp $
-#
+# Git: https://github.com/1o1o1/verlihub-freebsd-port
 
 PORTNAME=	verlihub
 PORTVERSION=	1.2.0.7
