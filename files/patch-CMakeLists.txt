@@ -1,0 +1,5 @@
+--- CMakeLists.txt.orig
++++ CMakeLists.txt
+@@ -156,2 +156,2 @@ SET
+-SET(CMAKE_CXX_STANDARD 11) # 98
++SET(CMAKE_CXX_STANDARD 98) # 98
