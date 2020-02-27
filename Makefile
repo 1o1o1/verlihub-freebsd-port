@@ -6,17 +6,17 @@
 # Git: https://github.com/1o1o1/verlihub-freebsd-port
 
 PORTNAME=	verlihub
-PORTVERSION=	1.2.0.7
-PORTEPOCH=	809.2
+PORTVERSION=	1.2.0.8
+PORTEPOCH=	814.1
 CATEGORIES=	net-p2p
-MASTER_SITES=	https://github.com/direct-connect/verlihub/archive/
+MASTER_SITES=	https://github.com/Verlihub/verlihub/archive/
 
-DISTNAME=	e0bc18cc414cb63fe0397dda5064f319ce82ccad
+DISTNAME=	da15a53c98e100780146f4db443c15a6abec3d74
 
 MAINTAINER=	netcelli@verlihub-project.org
 COMMENT=	VerliHub is a Direct Connect protocol server (Hub)
 
-WRKSRC=		${WRKDIR}/${PORTNAME}-e0bc18cc414cb63fe0397dda5064f319ce82ccad
+WRKSRC=		${WRKDIR}/${PORTNAME}-da15a53c98e100780146f4db443c15a6abec3d74
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=	bash:${PORTSDIR}/shells/bash
