@@ -7,7 +7,7 @@
 
 PORTNAME=	verlihub
 PORTVERSION=	1.2.0.7
-PORTEPOCH=	809
+PORTEPOCH=	809.2
 CATEGORIES=	net-p2p
 MASTER_SITES=	https://github.com/direct-connect/verlihub/archive/
 
@@ -25,6 +25,9 @@ LIB_DEPENDS=	libmaxminddb.so:net/libmaxminddb \
 
 RUN_DEPENDS=	${BUILD_DEPENDS}
 
+# fix your perl version:
+PERL_VER=	5.30
+PLIST_SUB=	PERL_VER=${PERL_VER}
 
 USE_RC_SUBR=	verlihub
 SUB_FILES=	verlihub
