@@ -1,5 +1,4 @@
-# Verlihub Freebsd port
+# Verlihub FreeBSD port
 
-First of all, you should install old icu-57 for a while to compiling Verlihub on Freebsd
-
-End to run Verlihub you need to install libraries from icu-lib57 ... or leave old version icu-57, but it breaks dependencies...
+first of all, you should install old icu-57 for a while to compiling Verlihub
+for runing Verlihub you can compil only libraries from icu-57 https://github.com/1o1o1/icu-lib57
