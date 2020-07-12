@@ -1,0 +1,23 @@
+--- plugins/CMakeLists.txt.orig
++++ plugins/CMakeLists.txt
+@@ -32,10 +32,10 @@ SET
+-	Find_Package(Lua52) # Lua 5.2
+-	#Find_Package(LuaSocket)
+-
+-	IF(LUA52_FOUND)
+-		ADD_PLUGIN(LUA52_FOUND lua)
+-	ELSE(LUA52_FOUND)
+-		Find_Package(Lua51) # Lua 5.1
+-		#Find_Package(LuaSocket)
+-		ADD_PLUGIN(LUA51_FOUND lua)
+-	ENDIF(LUA52_FOUND)
++	Find_Package(Lua53) # Lua 5.3
++	#Find_Package(LuaSocket)
++
++	IF(LUA53_FOUND)
++		ADD_PLUGIN(LUA53_FOUND lua)
++	ELSE(LUA53_FOUND)
++		Find_Package(Lua52) # Lua 5.2
++		#Find_Package(LuaSocket)
++		ADD_PLUGIN(LUA52_FOUND lua)
++	ENDIF(LUA53_FOUND)
