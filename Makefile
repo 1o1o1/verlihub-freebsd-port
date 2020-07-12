@@ -6,17 +6,18 @@
 # Git: https://github.com/1o1o1/verlihub-freebsd-port
 
 PORTNAME=	verlihub
-PORTVERSION=	1.2.0.20
-PORTEPOCH=	830
+PORTVERSION=	1.2.0.21
+PORTREVISION=	icu57
+PORTEPOCH=	833
 CATEGORIES=	net-p2p
 MASTER_SITES=	https://github.com/Verlihub/verlihub/archive/
 
-DISTNAME=	580f03b5ac2ba89eedf4dede9cfc2624bc47cb4d
+DISTNAME=	7a238f8f7a046d3f39d9552219706d3c361efef5
 
 MAINTAINER=	netcelli@verlihub-project.org
 COMMENT=	VerliHub is a Direct Connect protocol server (Hub)
 
-WRKSRC=		${WRKDIR}/${PORTNAME}-580f03b5ac2ba89eedf4dede9cfc2624bc47cb4d
+WRKSRC=		${WRKDIR}/${PORTNAME}-7a238f8f7a046d3f39d9552219706d3c361efef5
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=	bash:${PORTSDIR}/shells/bash
@@ -37,6 +38,9 @@ USE_MYSQL=	yes
 USE_LDCONFIG=	yes
 USE_OPENSSL=	yes
 #USE_GCC=	any
+
+post-patch:
+	@${INPLACE_CMD} cp files/FindLua53.cmake ${WRKSRC}/cmake/Modules/FindLua53.cmake
 
 # To Use Old standart 98
 #USE_CXXSTD=	gnu++98
@@ -121,7 +125,7 @@ post-install:
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} " If you need help you can read the manual at"
 	@${ECHO_MSG} " https://github.com/verlihub/verlihub/wiki or ask on support Hub:"
-	@${ECHO_MSG} " dchub://hub.verlihub.net:7777"
+	@${ECHO_MSG} " nmdcs://hub.verlihub.net:7777"
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} " You need to configure verlihub before starting it."
 	@${ECHO_MSG} " Use vh -i to install To help you use vh -h"
