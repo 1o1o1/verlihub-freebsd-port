@@ -1,23 +1,23 @@
 # New ports collection makefile for:	Verlihub
-# Date created:				04.04.2020
+# Date created:				11.07.2020
 # Whom:					Naumovitch Dmitry <admin@dchub.in.ua>
 #
 # $FreeBSD: ports/net-p2p/verlihub/Makefile,v 1.30 2018/19/06 07:33:12 ade Exp $
-# Git: https://github.com/1o1o1/verlihub-freebsd-port
+#
 
 PORTNAME=	verlihub
-PORTVERSION=	1.2.0.21
+PORTVERSION=	1.3.0.0
 PORTREVISION=	icu57
-PORTEPOCH=	833
+PORTEPOCH=	839
 CATEGORIES=	net-p2p
 MASTER_SITES=	https://github.com/Verlihub/verlihub/archive/
 
-DISTNAME=	7a238f8f7a046d3f39d9552219706d3c361efef5
+DISTNAME=	${PORTVERSION}
 
 MAINTAINER=	netcelli@verlihub-project.org
 COMMENT=	VerliHub is a Direct Connect protocol server (Hub)
 
-WRKSRC=		${WRKDIR}/${PORTNAME}-7a238f8f7a046d3f39d9552219706d3c361efef5
+WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=	bash:${PORTSDIR}/shells/bash
@@ -27,7 +27,7 @@ LIB_DEPENDS=	libmaxminddb.so:net/libmaxminddb \
 RUN_DEPENDS=	${BUILD_DEPENDS}
 
 # fix your perl version:
-PERL_VER=	5.30
+PERL_VER=	5.32
 PLIST_SUB=	PERL_VER=${PERL_VER}
 
 USE_RC_SUBR=	verlihub
@@ -40,14 +40,18 @@ USE_OPENSSL=	yes
 #USE_GCC=	any
 
 post-patch:
-	@${INPLACE_CMD} cp files/FindLua53.cmake ${WRKSRC}/cmake/Modules/FindLua53.cmake
+	@${INPLACE_CMD} cp files/FindLua54.cmake ${WRKSRC}/cmake/Modules/FindLua54.cmake
 
-# To Use Old standart 98
-#USE_CXXSTD=	gnu++98
-#USE_CXXSTD=	c++98
+# Clang90
+#CC=		/usr/local/bin/clang90
+#CXX=		/usr/local/bin/clang++90
+#CPP=		/usr/local/bin/clang-cpp90
+#LD=		/usr/local/bin/ld.lld90
+#NM=		/usr/local/bin/llvm-nm90
+#OBJDUMP=	/usr/local/bin/llvm-objdump90
+#STRINGS=	/usr/local/bin/llvm-strings90
 
-
-USES=			cmake zip
+USES=			cmake
 #USES=			cmake:noninja zip
 
 
@@ -98,7 +102,7 @@ CMAKE_ARGS+=	-DUSE_CUSTOM_AUTOSPRINTF:BOOL=ON
 #.if defined(WITHOUT_LUA)
 #CMAKE_ARGS+=	-DWITH_LUA:BOOL=OFF
 #.else
-#USE_LUA=	5.2
+#USE_LUA=	5.3
 #.endif
 #.if defined(WITHOUT_MESSENGER)
 #CMAKE_ARGS+=	-DWITH_MESSENGER:BOOL=OFF
@@ -106,7 +110,7 @@ CMAKE_ARGS+=	-DUSE_CUSTOM_AUTOSPRINTF:BOOL=ON
 #.if defined(WITHOUT_PYTHON)
 #CMAKE_ARGS+=	-DWITH_PYTHON:BOOL=OFF
 #.else
-#USE_PYTHON=	 2.8
+#USE_PYTHON=	2.8
 #.endif
 #.if defined(WITHOUT_REPLACER)
 #CMAKE_ARGS+=	-DWITH_REPLACER:BOOL=OFF
@@ -121,7 +125,7 @@ post-install:
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} " Now you could use deamon editing config file /etc/rc.conf."
 	@${ECHO_MSG} " Check config var in init file. Then start VerliHub daemon using"
-	@${ECHO_MSG} " ${PREFIX}/etc/rc.d/verlihub.sh start"
+	@${ECHO_MSG} " ${PREFIX}/etc/rc.d/verlihub start"
 	@${ECHO_MSG} " "
 	@${ECHO_MSG} " If you need help you can read the manual at"
 	@${ECHO_MSG} " https://github.com/verlihub/verlihub/wiki or ask on support Hub:"
