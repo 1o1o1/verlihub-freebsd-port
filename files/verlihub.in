@@ -1,23 +1,40 @@
 #!/bin/sh
-sleep 30
 
-case "$1" in
-    start)
+# PROVIDE: verlihub
+# REQUIRE: FILESYSTEMS defaultroute netwait resolv
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+: ${verlihub_enable="NO"}
+name="verlihub"
+rcvar="verlihub_enable"
+
+vh="/usr/local/bin/vh"
+vbpcname="verlihub"
+
+load_rc_config $name
+
+start_cmd="vh_start"
+stop_cmd="vh_stop"
+restart_cmd="vh_restart"
+
+vh_start()
+{
 	echo "Starting Verlihub..."
 	su -s root -c '/usr/local/bin/vh -r'
-	;;
-    stop)
-	echo "Stopping Verlihub..."
-	su -s root -c '/usr/local/bin/vh -s'
-	;;
-    restart)
+}
+
+vh_restart()
+{
 	echo "Restarting Verlihub..."
 	su -s root -c '/usr/local/bin/vh -q'
-	;;
-    *)
-	echo "Usage: /usr/local/etc/init.d/verlihub {start|stop|restart}"
-	exit 1
-	;;
-esac
+}
 
-exit 0
+vh_stop()
+{
+	echo "Stoping Verlihub..."
+	su -s root -c '/usr/local/bin/vh -s'
+}
+
+#extra_commands="startvnc"
+run_rc_command "$1"
