@@ -6,18 +6,18 @@
 #
 
 PORTNAME=	verlihub
-PORTVERSION=	1.3.0.0
-PORTREVISION=	icu57
-PORTEPOCH=	839
+PORTVERSION=	1.3.0.9
+#PORTREVISION=	icu57
+PORTEPOCH=	851
 CATEGORIES=	net-p2p
 MASTER_SITES=	https://github.com/Verlihub/verlihub/archive/
 
-DISTNAME=	${PORTVERSION}
+DISTNAME=	c4933516676c5ec30114e9a6d2bf4f8c0efcf6e6
 
 MAINTAINER=	netcelli@verlihub-project.org
 COMMENT=	VerliHub is a Direct Connect protocol server (Hub)
 
-WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
+WRKSRC=		${WRKDIR}/${PORTNAME}-c4933516676c5ec30114e9a6d2bf4f8c0efcf6e6
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=	bash:${PORTSDIR}/shells/bash
@@ -51,7 +51,7 @@ post-patch:
 #OBJDUMP=	/usr/local/bin/llvm-objdump90
 #STRINGS=	/usr/local/bin/llvm-strings90
 
-USES=			cmake
+USES=			cmake zip
 #USES=			cmake:noninja zip
 
 
