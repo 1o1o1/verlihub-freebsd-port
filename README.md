@@ -2,7 +2,7 @@
 
 Dependencies installation<br>
 ```
-gettext icu cmake openssl zlib pcre python27 perl lua54 lua-luafilesystem lua-luasec lua-luasocket libgcrypt libsysinfo libexecinfo dialog4ports bash mariadb103-server
+gettext icu cmake openssl zlib pcre python27 perl lua54 lua-luafilesystem lua-luasec lua-luasocket libgcrypt libsysinfo libexecinfo libmaxminddb dialog4ports bash mariadb103-server
 ```
 
 :point_down: <br/>
