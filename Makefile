@@ -6,18 +6,18 @@
 #
 
 PORTNAME=	verlihub
-PORTVERSION=	1.3.0.9
+PORTVERSION=	1.3.0.10
 #PORTREVISION=	icu57
-PORTEPOCH=	856
+PORTEPOCH=	857
 CATEGORIES=	net-p2p
 MASTER_SITES=	https://github.com/Verlihub/verlihub/archive/
 
-DISTNAME=	f5ac6366595700b6a6c7a5716283d7f863e530b3
+DISTNAME=	01cdef74fd402db8a326888ec9e1235095302497
 
 MAINTAINER=	netcelli@verlihub-project.org
 COMMENT=	VerliHub is a Direct Connect protocol server (Hub)
 
-WRKSRC=		${WRKDIR}/${PORTNAME}-f5ac6366595700b6a6c7a5716283d7f863e530b3
+WRKSRC=		${WRKDIR}/${PORTNAME}-01cdef74fd402db8a326888ec9e1235095302497
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=	bash:${PORTSDIR}/shells/bash
@@ -39,8 +39,8 @@ USE_LDCONFIG=	yes
 USE_OPENSSL=	yes
 #USE_GCC=	any
 
-post-patch:
-	@${INPLACE_CMD} cp files/FindLua54.cmake ${WRKSRC}/cmake/Modules/FindLua54.cmake
+#post-patch:
+#	@${INPLACE_CMD} cp files/FindLua54.cmake ${WRKSRC}/cmake/Modules/FindLua54.cmake
 
 # Clang90
 #CC=		/usr/local/bin/clang90
