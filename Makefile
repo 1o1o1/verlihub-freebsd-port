@@ -8,16 +8,16 @@
 PORTNAME=	verlihub
 PORTVERSION=	1.3.0.10
 #PORTREVISION=	icu57
-PORTEPOCH=	857
+PORTEPOCH=	858
 CATEGORIES=	net-p2p
 MASTER_SITES=	https://github.com/Verlihub/verlihub/archive/
 
-DISTNAME=	01cdef74fd402db8a326888ec9e1235095302497
+DISTNAME=	808cd33c1e51c28d67d3735d4ce78f71cbc709f4
 
 MAINTAINER=	netcelli@verlihub-project.org
 COMMENT=	VerliHub is a Direct Connect protocol server (Hub)
 
-WRKSRC=		${WRKDIR}/${PORTNAME}-01cdef74fd402db8a326888ec9e1235095302497
+WRKSRC=		${WRKDIR}/${PORTNAME}-808cd33c1e51c28d67d3735d4ce78f71cbc709f4
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=	bash:${PORTSDIR}/shells/bash
