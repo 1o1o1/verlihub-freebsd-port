@@ -6,5 +6,5 @@ gettext icu cmake openssl zlib pcre python27 perl lua54 lua-luafilesystem lua-lu
 ```
 
 :point_down: <br/>
-_For versions <= `1.3.0.0` you should install old icu-57 to compiling Verlihub for a while_<br/>
+_For versions < `1.3.0.9.851` you should install old icu-57 to compiling Verlihub for a while_<br/>
 _and for running you can compile only libraries from icu-57 https://github.com/1o1o1/icu-lib57_
