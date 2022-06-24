@@ -1,23 +1,23 @@
 # New ports collection makefile for:	Verlihub
-# Date created:				11.07.2020
+# Date created:				24.06.2022
 # Whom:					Naumovitch Dmitry <admin@dchub.in.ua>
 #
 # $FreeBSD: ports/net-p2p/verlihub/Makefile,v 1.30 2018/19/06 07:33:12 ade Exp $
 #
 
 PORTNAME=	verlihub
-PORTVERSION=	1.3.0.11
-#PORTREVISION=	icu57
-PORTEPOCH=	859
+PORTVERSION=	1.3.1.12
+#PORTREVISION=	99
+PORTEPOCH=	884
 CATEGORIES=	net-p2p
 MASTER_SITES=	https://github.com/Verlihub/verlihub/archive/
 
-DISTNAME=	d8c8443ff9eb989b9d1f4fe2f9ee339b1694dfc7
+DISTNAME=	8ad358a9729a05bcd404ec603871a2a4acbbbc5f
 
 MAINTAINER=	netcelli@verlihub-project.org
 COMMENT=	VerliHub is a Direct Connect protocol server (Hub)
 
-WRKSRC=		${WRKDIR}/${PORTNAME}-d8c8443ff9eb989b9d1f4fe2f9ee339b1694dfc7
+WRKSRC=		${WRKDIR}/${PORTNAME}-8ad358a9729a05bcd404ec603871a2a4acbbbc5f
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=	bash:${PORTSDIR}/shells/bash

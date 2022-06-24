@@ -5,4 +5,4 @@
 +	('dchub.in.ua:420', 0),
 @@ -3,1 +3,1 @@ SET
 -	('nmdcs://hub.verlihub.net:7777', 1)
-+	('nmdc://dchub.in.ua:420', 1)
++	('nmdcs://dchub.in.ua:711', 1)
