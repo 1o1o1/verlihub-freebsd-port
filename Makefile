@@ -1,23 +1,23 @@
 # New ports collection makefile for:	Verlihub
-# Date created:				24.06.2022
+# Date created:				09.12.2021
 # Whom:					Naumovitch Dmitry <admin@dchub.in.ua>
 #
 # $FreeBSD: ports/net-p2p/verlihub/Makefile,v 1.30 2018/19/06 07:33:12 ade Exp $
 #
 
 PORTNAME=	verlihub
-PORTVERSION=	1.3.1.12
+PORTVERSION=	1.3.1.13
 #PORTREVISION=	99
-PORTEPOCH=	884
+PORTEPOCH=	888
 CATEGORIES=	net-p2p
 MASTER_SITES=	https://github.com/Verlihub/verlihub/archive/
 
-DISTNAME=	8ad358a9729a05bcd404ec603871a2a4acbbbc5f
+DISTNAME=	ea882a5265f7ffe15a425c2b1b3f8fd2c2bf36a4
 
 MAINTAINER=	netcelli@verlihub-project.org
 COMMENT=	VerliHub is a Direct Connect protocol server (Hub)
 
-WRKSRC=		${WRKDIR}/${PORTNAME}-8ad358a9729a05bcd404ec603871a2a4acbbbc5f
+WRKSRC=		${WRKDIR}/${PORTNAME}-ea882a5265f7ffe15a425c2b1b3f8fd2c2bf36a4
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=	bash:${PORTSDIR}/shells/bash
@@ -39,6 +39,18 @@ USE_LDCONFIG=	yes
 USE_OPENSSL=	yes
 #USE_GCC=	any
 
+#WITHOUT_LUA=yes
+#WITHOUT_PYTHON=yes
+WITH_IPLOG=yes
+WITH_CHATROOM=yes
+WITH_FORBID=yes
+WITH_ISP=yes
+WITH_FLOODPROT=yes
+WITH_MESSENGER=yes
+WITH_REPLACER=yes
+WITH_PERL=yes
+WITH_STATS=yes
+
 #post-patch:
 #	@${INPLACE_CMD} cp files/FindLua54.cmake ${WRKSRC}/cmake/Modules/FindLua54.cmake
 
@@ -54,13 +66,27 @@ USE_OPENSSL=	yes
 USES=			cmake zip
 #USES=			cmake:noninja zip
 
+#OPTIONS_DEFINE=LUA PYTHON IPLOG CHATROOM FORBID ISP FLOODPROT MESSENGER REPLACER PERL STATS
+#OPTIONS_DEFAULT=LUA PYTHON
 
-#OPTIONS=	CHATROOM "Create individual chatrooms" On \
-#		FORBID  "Filter messages for forbidden words" On \
+#LUA_DESC=Load scripts written in LUA language
+#PYTHON_DESC=Use scripts written with Python
+#IPLOG_DESC=Save log history for IP and nicknames
+#CHATROOM_DESC=Create individual chatrooms
+#FORBID_DESC=Filter messages for forbidden words
+#ISP_DESC=Check connection, nicknames, minimum shares, etc
+#FLOODPROT_DESC=more control for hub flooding
+#MESSENGER_DESC=Sends a message to offline users
+#REPLACER_DESC=Replaces given patterns in text
+#PERL_DESC=Use scripts written with Perl
+#STATS_DESC=Periodically saves statistics in the DB
+
+#OPTIONS=	CHATROOM "Create individual chatrooms" Off \
+#		FORBID  "Filter messages for forbidden words" Off \
 #		IPLOG "Save log history for IP and nicknames" On \
-#		ISP "Check connection, nicknames, minimum shares, etc" On\
+#		ISP "Check connection, nicknames, minimum shares, etc" Off \
 #		LUA "Load scripts written in LUA language" On \
-#		FLOODPROT "more control for hub flooding" On \
+#		FLOODPROT "more control for hub flooding" Off \
 #		MESSENGER "Sends a message to offline users" Off \
 #		PYTHON "Use scripts written with Python" On \
 #		REPLACER "Replaces given patterns in text" On \
@@ -81,43 +107,44 @@ CMAKE_ARGS+=	-DUSE_CUSTOM_AUTOSPRINTF:BOOL=ON
 #CPPFLAGS+=	-DU_USING_ICU_NAMESPACE=1
 
 #CMAKE_OUTSOURCE=1
-#.if !defined(WITHOUT_NLS)
-#USE_GETTEXT=	yes
-#.endif
-#.if defined(WITHOUT_CHATROOM)
-#CMAKE_ARGS+=	-DWITH_CHATROOM:BOOL=OFF
-#.endif
-#.if defined(WITHOUT_FORBID)
-#CMAKE_ARGS+=	-DWITH_FORBID:BOOL=OFF
-#.endif
-#.if defined(WITHOUT_IPLOG)
-#CMAKE_ARGS+=	-DWITH_IPLOG:BOOL=OFF
-#.endif
-#.if defined(WITHOUT_ISP)
-#CMAKE_ARGS+=	-DWITH_ISP:BOOL=OFF
-#.endif
-#.if defined(WITHOUT_FLOODPROT)
-#CMAKE_ARGS+=	-DWITH_FLOODPROT:BOOL=OFF
-#.endif
-#.if defined(WITHOUT_LUA)
-#CMAKE_ARGS+=	-DWITH_LUA:BOOL=OFF
-#.else
-#USE_LUA=	5.3
-#.endif
-#.if defined(WITHOUT_MESSENGER)
-#CMAKE_ARGS+=	-DWITH_MESSENGER:BOOL=OFF
-#.endif
-#.if defined(WITHOUT_PYTHON)
-#CMAKE_ARGS+=	-DWITH_PYTHON:BOOL=OFF
-#.else
-#USE_PYTHON=	2.8
-#.endif
-#.if defined(WITHOUT_REPLACER)
-#CMAKE_ARGS+=	-DWITH_REPLACER:BOOL=OFF
-#.endif
-#.if defined(WITHOUT_STATS)
-#CMAKE_ARGS+=	-DWITH_STATS:BOOL=OFF
-#.endif
+
+.if defined(WITH_CHATROOM)
+CMAKE_ARGS+=	-DWITH_CHATROOM=ON
+.endif
+.if defined(WITH_FORBID)
+CMAKE_ARGS+=	-DWITH_FORBID=ON
+.endif
+.if defined(WITH_IPLOG)
+CMAKE_ARGS+=	-DWITH_IPLOG=ON
+.endif
+.if defined(WITH_ISP)
+CMAKE_ARGS+=	-DWITH_ISP=ON
+.endif
+.if defined(WITH_FLOODPROT)
+CMAKE_ARGS+=	-DWITH_FLOODPROT=ON
+.endif
+.if defined(WITHOUT_LUA)
+CMAKE_ARGS+=	-DWITH_LUA=OFF
+.else
+USE_LUA=	5.4
+.endif
+.if defined(WITH_MESSENGER)
+CMAKE_ARGS+=	-DWITH_MESSENGER=ON
+.endif
+.if defined(WITHOUT_PYTHON)
+CMAKE_ARGS+=	-DWITH_PYTHON=OFF
+.else
+USE_PYTHON=	2.8
+.endif
+.if defined(WITH_REPLACER)
+CMAKE_ARGS+=	-DWITH_REPLACER=ON
+.endif
+.if defined(WITH_PERL)
+CMAKE_ARGS+=	-DWITH_PERL=ON
+.endif
+.if defined(WITH_STATS)
+CMAKE_ARGS+=	-DWITH_STATS=ON
+.endif
 
 post-install:
 	@${ECHO_MSG} " You are now ready to use VerliHub into your system."
