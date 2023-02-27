@@ -1,23 +1,23 @@
 # New ports collection makefile for:	Verlihub
-# Date created:				09.12.2021
+# Date created:				16.10.2022
 # Whom:					Naumovitch Dmitry <admin@dchub.in.ua>
 #
 # $FreeBSD: ports/net-p2p/verlihub/Makefile,v 1.30 2018/19/06 07:33:12 ade Exp $
 #
 
 PORTNAME=	verlihub
-PORTVERSION=	1.3.1.13
-#PORTREVISION=	99
-PORTEPOCH=	888
+PORTVERSION=	1.4.0.0
+PORTREVISION=	1
+#PORTEPOCH=	1
 CATEGORIES=	net-p2p
 MASTER_SITES=	https://github.com/Verlihub/verlihub/archive/
 
-DISTNAME=	ea882a5265f7ffe15a425c2b1b3f8fd2c2bf36a4
+DISTNAME=	${PORTVERSION}
 
 MAINTAINER=	netcelli@verlihub-project.org
 COMMENT=	VerliHub is a Direct Connect protocol server (Hub)
 
-WRKSRC=		${WRKDIR}/${PORTNAME}-ea882a5265f7ffe15a425c2b1b3f8fd2c2bf36a4
+WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=	bash:${PORTSDIR}/shells/bash
@@ -63,7 +63,7 @@ WITH_STATS=yes
 #OBJDUMP=	/usr/local/bin/llvm-objdump90
 #STRINGS=	/usr/local/bin/llvm-strings90
 
-USES=			cmake zip
+USES=			cmake
 #USES=			cmake:noninja zip
 
 #OPTIONS_DEFINE=LUA PYTHON IPLOG CHATROOM FORBID ISP FLOODPROT MESSENGER REPLACER PERL STATS

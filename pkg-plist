@@ -124,8 +124,6 @@ share/verlihub/config/ru/help_op
 share/verlihub/config/ru/help_reg
 share/verlihub/config/ru/help_usr
 share/verlihub/config/ru/help_vip
-share/verlihub/test_scripts/vh_event_log.py
-share/verlihub/test_scripts/vh_integration_test.py
 bin/vh_daemon
 bin/vh_lib
 bin/vh_gui
@@ -133,7 +131,6 @@ bin/vh
 bin/vhm
 bin/vh_regimporter
 bin/vh_migration_0.9.8eto1.0
-bin/vh_run_integration_test
 share/locale/it_IT/LC_MESSAGES/verlihub.mo
 share/locale/sk_SK/LC_MESSAGES/verlihub.mo
 share/locale/ro_RO/LC_MESSAGES/verlihub.mo
