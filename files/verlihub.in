@@ -2,6 +2,8 @@
 
 # PROVIDE: verlihub
 # REQUIRE: FILESYSTEMS defaultroute netwait resolv
+# REQUIRE: mysql unbound
+# REQUIRE: LOGIN
 # KEYWORD: shutdown
 
 . /etc/rc.subr
