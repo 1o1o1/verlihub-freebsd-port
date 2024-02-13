@@ -6,18 +6,18 @@
 #
 
 PORTNAME=	verlihub
-PORTVERSION=	1.4.0.5
-#PORTREVISION=	2
-PORTEPOCH=	931
+PORTVERSION=	1.5.0.0
+#PORTREVISION=	1
+#PORTEPOCH=	1
 CATEGORIES=	net-p2p
 MASTER_SITES=	https://github.com/Verlihub/verlihub/archive/
 
-DISTNAME=	2b7edb22d2f42ea9c2159355a2163981dda68cf3
+DISTNAME=	${PORTVERSION}
 
 MAINTAINER=	netcelli@verlihub-project.org
 COMMENT=	VerliHub is a Direct Connect protocol server (Hub)
 
-WRKSRC=		${WRKDIR}/${PORTNAME}-2b7edb22d2f42ea9c2159355a2163981dda68cf3
+WRKSRC=		${WRKDIR}/${PORTNAME}-${PORTVERSION}
 LICENSE=	GPLv2
 
 BUILD_DEPENDS=	bash:${PORTSDIR}/shells/bash
@@ -27,7 +27,7 @@ LIB_DEPENDS=	libmaxminddb.so:net/libmaxminddb \
 RUN_DEPENDS=	${BUILD_DEPENDS}
 
 # fix your perl version:
-#PERL_VER=	5.32
+#PERL_VER=	5.36
 #PLIST_SUB=	PERL_VER=${PERL_VER}
 
 USE_RC_SUBR=	verlihub
@@ -40,13 +40,13 @@ USE_OPENSSL=	yes
 #USE_GCC=	any
 
 #WITHOUT_LUA=yes
-#WITH_PYTHON=yes
+#WITHOUT_PYTHON=yes
 #WITH_IPLOG=yes
-#WITH_CHATROOM=yes
+WITH_CHATROOM=yes
 #WITH_FORBID=yes
 #WITH_ISP=yes
 #WITH_FLOODPROT=yes
-#WITH_MESSENGER=yes
+WITH_MESSENGER=yes
 #WITH_REPLACER=yes
 #WITH_PERL=yes
 #WITH_STATS=yes
@@ -63,7 +63,7 @@ USE_OPENSSL=	yes
 #OBJDUMP=	/usr/local/bin/llvm-objdump90
 #STRINGS=	/usr/local/bin/llvm-strings90
 
-USES=			cmake zip
+USES=			cmake
 #USES=			cmake:noninja zip
 
 #OPTIONS_DEFINE=LUA PYTHON IPLOG CHATROOM FORBID ISP FLOODPROT MESSENGER REPLACER PERL STATS
@@ -131,8 +131,8 @@ USE_LUA=	5.4
 .if defined(WITH_MESSENGER)
 CMAKE_ARGS+=	-DWITH_MESSENGER=ON
 .endif
-.if defined(WITH_PYTHON)
-CMAKE_ARGS+=	-DWITH_PYTHON=ON
+.if defined(WITHOUT_PYTHON)
+CMAKE_ARGS+=	-DWITH_PYTHON=OFF
 .else
 USE_PYTHON=	2.8
 .endif
