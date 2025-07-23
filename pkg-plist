@@ -86,8 +86,6 @@ include/verlihub/tpluginbase.h
 include/verlihub/dirsettings.h
 lib/libplug_pi.so
 lib/liblua_pi.so
-lib/libchatroom_pi.so
-lib/libmessenger_pi.so
 share/verlihub/sql/default_conn_types.sql
 share/verlihub/sql/default_file_trigger.sql
 share/verlihub/sql/default_reglist.sql
@@ -131,9 +129,9 @@ share/locale/tr_TR/LC_MESSAGES/verlihub.mo
 share/locale/de_DE/LC_MESSAGES/verlihub.mo
 share/locale/bg_BG/LC_MESSAGES/verlihub.mo
 share/locale/nl_NL/LC_MESSAGES/verlihub.mo
-share/locale/lt_LT/LC_MESSAGES/verlihub.mo
 share/locale/zh_CN/LC_MESSAGES/verlihub.mo
 share/locale/es_ES/LC_MESSAGES/verlihub.mo
+share/locale/uk_UA/LC_MESSAGES/verlihub.mo
 share/man/man1/verlihub.1.gz
 share/man/man1/vh.1.gz
 share/man/man1/vh_regimporter.1.gz
